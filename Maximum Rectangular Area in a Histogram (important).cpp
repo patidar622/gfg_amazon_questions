@@ -3,6 +3,41 @@ Find the largest rectangular area possible in a given histogram where the
 largest rectangle can be made of a number of contiguous bars.
 For simplicity, assume that all bars have same width and the width is 1 unit.
 */
+/*
+o(n) approach fats he ye use karna 
+int find_maxRectangle(vector<int>& vis)
+{
+    int ans=0,max_area=0;
+    stack<int>s1;
+    int i=0;
+    while(i<vis.size())
+    {
+        if(s1.empty() || vis[s1.top()]<=vis[i])
+        s1.push(i++);
+        else
+        {
+            int top_val=vis[s1.top()];
+            s1.pop();
+            if(s1.empty())
+            ans=top_val*i;
+            else
+            ans=top_val*(i-s1.top()-1);
+            max_area=max(ans,max_area); 
+        }
+    }
+    while(!s1.empty())
+    {
+        int top_val=vis[s1.top()];
+        s1.pop();
+        if(s1.empty())
+        ans=top_val*i;
+        else
+        ans=top_val*(i-s1.top()-1);
+        max_area=max(ans,max_area);
+    }
+    return max_area;
+}
+*/
 #include<bits/stdc++.h>
 using namespace std;
 vector<int> find_left(vector<int>& vis)

@@ -5,6 +5,8 @@ In stock market , a person buys a stock and sells it on some future date.
 A transaction is equivalent to (buying + selling) of a stock and new transaction can start only when the previous transaction has been completed.
 
 */
+// you can buy ans sell on the same day
+
 #include<bits/stdc++.h>
 using namespace std;
 vector<int>vis;

@@ -1,3 +1,8 @@
+/*
+the rabin carp algo(rolling hash) with binary search 
+time complexitity (logn * n * logn)
+we can do it with  logic of  longest common substring problem but because of constraints this will not work  
+*/
 #define p 10000007
 vector<int>roll;
 class Solution {

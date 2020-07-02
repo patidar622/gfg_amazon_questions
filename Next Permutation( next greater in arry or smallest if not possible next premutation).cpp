@@ -8,68 +8,33 @@ For example:
 3,2,1 ? 1,2,3
 
 */
-#include<bits/stdc++.h>
-using namespace std;
-vector<int> find_solution(vector<int>& vis)
-{
-    stack<int>s1;
-    for(int i=0;i<vis.size();i++)
-    {
-        if(vis[i-1]>=vis[i])
-          {
-              if(i+1==vis.size())
-              {
-                  sort(vis.begin(),vis.end());
-                  return vis;
-              }
-          }
-          else
-          break;
-    }
+vector<int> Solution::nextPermutation(vector<int> &A) {
+       int dip=-1;
+       int dip_index=-1;
+       for(int i=A.size()-1;i>0;i--)//find the dip point and swap with the greater element than dip form the last and then reverse from dip_index+1 to end;
+       {
+           if(A[i]>=A[i-1])
+           {
+               dip=A[i-1];
+               dip_index=i-1;
+               break;
+           }
+       }
+       if(dip_index!=-1)
+       {
+       for(int i=A.size()-1;i>=0;i--)
+       {
+           if(A[i]>=dip)
+           {
+               swap(A[i],A[dip_index]);
+               reverse(A.begin()+(dip_index+1),A.end());
+               return A;
+           }
+       }
+       }
+       reverse(A.begin(),A.end());
+           return A;
     
-    for(int i=vis.size()-1;i>=0;i--)
-    {
-                  if(vis[i-1]>=vis[i])
-                  {
-                      s1.push(i);
-                  }
-                  else
-                  {
-                      s1.push(i);
-                      int t;
-                      while(!s1.empty() && vis[i-1]<vis[s1.top()])
-                      {
-                          t=s1.top();
-                          s1.pop();
-                      }
-                      swap(vis[i-1],vis[t]);
-                      reverse(vis.begin()+i,vis.end());
-                      return vis;
-                  }
-    }
-    reverse(vis.begin(),vis.end());
-    return vis;
 }
-int main()
- {
-	int t;
-	cin>>t;
-	while(t--)
-	{
-	    int n;
-	    cin>>n;
-	    vector<int>vis;
-	    for(int i=0;i<n;i++)
-	    {
-	        int x;cin>>x;
-	        vis.push_back(x);
-	    }
-	    vector<int>ans=find_solution(vis);
-	    for(auto i:ans)
-	    {
-	        cout<<i<<" ";
-	    }
-	    cout<<endl;
-	}
-	return 0;
-}
+
+       

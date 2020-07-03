@@ -16,6 +16,7 @@ Then the rotated array becomes:
 ]
 */
 /*
+time o(N^2) and o(1) space
 the main logic is that the required matrix is obtainted in two ways 
   1. we have to find the in-place transpose of matrix 
   2. then reverse the each matrix

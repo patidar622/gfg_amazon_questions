@@ -1,3 +1,40 @@
+/*
+if you just want ko check only that given sudoku is valid or not than this is the best way to check 
+int Solution::isValidSudoku(const vector<string> &A) {
+    vector<short>row(9,0),col(9,0);
+    vector<vector<short> >square(3,vector<short>(3,0));
+    
+    
+    for(int i=0;i<9;i++)
+    {
+        for(int j=0;j<9;j++)
+        {
+            if(A[i][j]=='.')continue;
+            if(row[i] & (1<<(A[i][j]-'0')))return  false;
+            if(col[j] & (1<<(A[i][j]-'0')))return false;
+            if(square[i/3][j/3] & (1<<(A[i][j]-'0')))return false;
+            
+            row[i]|=(1<<(A[i][j]-'0'));
+            col[j]|=(1<<(A[i][j]-'0'));
+            square[i/3][j/3]|=(1<<(A[i][j]-'0'));
+        }
+    }
+    return true;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+*/
 #include<bits/stdc++.h>
 using namespace std;
 vector<vector<int>>vis;

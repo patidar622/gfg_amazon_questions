@@ -104,6 +104,27 @@ for i in range(t):
     else:
         print(-1)
 */
+/*
+N = int(input())
+EN = []
+STS = []
+ETS = []
+for i in range(N):
+    S = input()
+    EN.append(S.split()[0])
+    ST = list(map(int,S.split()[1].split(':')))
+    ET = list(map(int,S.split()[2].split(':')))
+    STS.append(ST[0]*3600+ST[1]*60+ST[2])
+    ETS.append(ET[0]*3600+ET[1]*60+ET[2])
+
+Q = list(map(int,input().split(':')))
+QS = int(Q[0]*3600+Q[1]*60+Q[2])
+R = 0
+for i in range(N):
+    if STS[i]<=QS and QS<=ETS[i]:
+        R+=1
+print(R)
+*/
 
  //c me
 #include<stdio.h>
